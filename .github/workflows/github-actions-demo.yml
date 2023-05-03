@@ -16,7 +16,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-  Template-Validator:
+  Validation:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Validate"
+      - name: Template Validator
+        uses: ranemihir/template-validator@v1.0
