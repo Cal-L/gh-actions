@@ -5,10 +5,10 @@ const githubToken = process.env.GITHUB_TOKEN;
 const octokit = github.getOctokit(githubToken);
 
 const githubContext = github.context;
-const pullRequestTitle = context.payload.pull_request.title;
-const headBranchName = context.payload.pull_request.head.ref;
-const owner = context.repo.owner;
-const repo = context.repo.repo;
+const pullRequestTitle = githubContext.payload.pull_request.title;
+const headBranchName = githubContext.payload.pull_request.head.ref;
+const owner = githubContext.repo.owner;
+const repo = githubContext.repo.repo;
 
 /**
  * Checks if PR title is valid.
