@@ -17,7 +17,9 @@
 #           ls ${{ github.workspace }}
 #       - run: echo "🍏 This job's status is ${{ job.status }}."
 name: Run JavaScript file
-on: [push]
+on:
+  pull_request:
+    types: [opened, edited]
 jobs:
   run:
     runs-on: ubuntu-latest
