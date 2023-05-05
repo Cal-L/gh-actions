@@ -10,9 +10,10 @@ const octokit = github.getOctokit(token);
 
 const context = github.context;
 const title = context.payload.pull_request.title;
+const prbranch = context.payload.pull_request.head.ref;
+console.log("OK", prbranch);
 const owner = context.repo.owner;
 const repo = context.repo.repo;
-console.log("sda", context.base_ref);
 
 /**
  * Checks if PR title is valid.
