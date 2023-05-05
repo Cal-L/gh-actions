@@ -21,7 +21,7 @@ const main = async () => {
     const k = response.data;
     console.log("LOL", k);
   } catch (err) {
-    console.log("ERR", err);
+    console.log("ERRr", err);
   }
   // const fileUrl = await response.data.download_url;
 };
