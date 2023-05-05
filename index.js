@@ -18,7 +18,7 @@ const main = async () => {
       repo,
       path: prTemplatePath,
     });
-    const fileUrl = await response.data.download_url;
+    const fileUrl = await repoResponse.data.download_url;
     const contentResponse = await fetch(fileUrl);
     const text = await contentResponse.text();
 
