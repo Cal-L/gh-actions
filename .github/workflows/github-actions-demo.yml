@@ -18,5 +18,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Validation:
     runs-on: ubuntu-latest
-    steps:
-      - main: "index.js"
+    runs:
+      using: "node16"
+      main: "index.js"
