@@ -32,5 +32,5 @@ jobs:
 
       - name: Run index.js
         run: node index.js
-  permissions:
-    secrets: write
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -8,8 +8,7 @@ const token = process.env.GITHUB_TOKEN;
 
 const context = github.context;
 const title = context.payload.pull_request.title;
-const prbranch = context.payload.pull_request.head.ref;
-console.log("OK", prbranch, token[0]);
+const branch = context.payload.pull_request.head.ref;
 const owner = context.repo.owner;
 const repo = context.repo.repo;
 const octokit = github.getOctokit(token);
