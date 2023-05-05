@@ -25,8 +25,8 @@ jobs:
       # - name: Checkout code
       #   uses: actions/checkout@v2
 
-      # - name: Install dependencies
-      #   run: npm install
+      - name: Install dependencies
+        run: npm install
 
       - name: Run index.js
         run: node index.js
