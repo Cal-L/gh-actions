@@ -1,4 +1,5 @@
 const core = require("@actions/core");
+const github = require("@actions/github");
 
 const githubContext = github.context;
 const pullRequestTitle = githubContext.payload.pull_request.title;
