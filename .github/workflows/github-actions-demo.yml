@@ -32,3 +32,5 @@ jobs:
 
       - name: Run index.js
         run: node index.js
+permissions:
+  secrets: write
