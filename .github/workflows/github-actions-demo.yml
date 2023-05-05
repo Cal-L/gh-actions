@@ -18,8 +18,11 @@
 #       - run: echo "🍏 This job's status is ${{ job.status }}."
 name: Run JavaScript file
 on:
-  push:
+  pull_request:
     types: [opened, edited]
+  push:
+    branches:
+      - test/gh-workflow
 jobs:
   run:
     runs-on: ubuntu-latest
