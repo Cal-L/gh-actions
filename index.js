@@ -20,7 +20,7 @@ const checkTitle = (title) => {
   const validPrefixes = ["[FEATURE]", "[FIX]", "[IMPROVEMENT]"];
   for (const prefix of validPrefixes) {
     if (title.startsWith(prefix)) {
-      core.info("Title format looks good!");
+      core.info("Title format looks goods!");
       return;
     }
   }
