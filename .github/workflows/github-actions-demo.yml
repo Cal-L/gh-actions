@@ -20,7 +20,6 @@ name: Run JavaScript file
 on:
   pull_request:
     types: [opened, edited]
-
 jobs:
   run:
     runs-on: ubuntu-latest
