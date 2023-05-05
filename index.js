@@ -12,13 +12,17 @@ const context = github.context;
 const main = async () => {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
-  const response = await octokit.rest.repos.getContent({
-    owner,
-    repo,
-    path: prTemplatePath,
-  });
-  const k = response.data;
-  console.log("LOL", k);
+  try {
+    const response = await octokit.rest.repos.getContent({
+      owner,
+      repo,
+      path: prTemplatePath,
+    });
+    const k = response.data;
+    console.log("LOL", k);
+  } catch (err) {
+    console.log("ERR", err);
+  }
   // const fileUrl = await response.data.download_url;
 };
 main();
