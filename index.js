@@ -8,9 +8,26 @@ const token = process.env.GITHUB_TOKEN;
 const octokit = github.getOctokit(token);
 
 const context = github.context;
-// const title = context.payload.pull_request.title;
-const title = context.payload.pull_request.title;
-console.log("TITLE", title);
+const prTitle = context.payload.pull_request.title;
+
+/**
+ * Checks if PR title is valid.
+ *
+ * @param {string} title
+ * @returns
+ */
+const checkTitle = (title) => {
+  const validPrefixes = ["[FEATURE]", "[FIX]", "[IMPROVEMENT]"];
+  for (const prefix of validPrefixes) {
+    if (title.startsWith(prefix)) {
+      return true;
+    }
+  }
+  core.setFailed(
+    "Title is not a valid syntax. It needs to be prefixed with one of the following - [FEATURE], [FIX], or [IMPROVEMENT]."
+  );
+};
+
 const main = async () => {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
@@ -24,8 +41,7 @@ const main = async () => {
     const contentResponse = await fetch(fileUrl);
     const text = await contentResponse.text();
 
-    console.log("LOL", text);
-    console.log("SA", "title");
+    checkTitle(prTitle);
   } catch (err) {
     console.log("ERRr", err);
   }
