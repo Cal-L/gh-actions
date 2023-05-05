@@ -1,27 +1,19 @@
 const core = require("@actions/core");
-const github = require("@actions/github");
-
-const githubToken = process.env.GITHUB_TOKEN;
-const octokit = github.getOctokit(githubToken);
 
 const githubContext = github.context;
 const pullRequestTitle = githubContext.payload.pull_request.title;
-const headBranchName = githubContext.payload.pull_request.head.ref;
-const owner = githubContext.repo.owner;
-const repo = githubContext.repo.repo;
 
 /**
- * Checks if PR title is valid.
+ * Checks if pull request title has a valid prefix.
  *
  * @param {string} title
- * @returns
+ * @returns Fails the action if title is invalid.
  */
 const checkTitle = async () => {
+  const validPrefixes = ["[FEATURE]", "[FIX]", "[IMPROVEMENT]"];
   try {
-    throw new Error("#WHAM");
-    const validPrefixes = ["[FEATURE]", "[FIX]", "[IMPROVEMENT]"];
     for (const prefix of validPrefixes) {
-      if (title.startsWith(prefix)) {
+      if (pullRequestTitle.startsWith(prefix)) {
         core.info("Title format looks good!");
         return;
       }
