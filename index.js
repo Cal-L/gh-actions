@@ -2,6 +2,7 @@
 // import github from "@actions/github";
 const core = require("@actions/core");
 const github = require("@actions/github");
+console.log(process.env.GITHUB_HEAD_REF);
 
 const prTemplatePath = ".github/PULL_REQUEST_TEMPLATE.md";
 const token = process.env.GITHUB_TOKEN;
