@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run index.ts
-        run: node index.ts
+      - name: Run index.js
+        run: node index.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
