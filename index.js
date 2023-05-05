@@ -12,6 +12,7 @@ const context = github.context;
 const title = context.payload.pull_request.title;
 const owner = context.repo.owner;
 const repo = context.repo.repo;
+console.log("sda", github.base_ref);
 
 /**
  * Checks if PR title is valid.
