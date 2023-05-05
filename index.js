@@ -9,7 +9,7 @@ const octokit = github.getOctokit(token);
 
 const context = github.context;
 const title = context.payload.pull_request.title;
-
+console.log(context.payload);
 const main = async () => {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
