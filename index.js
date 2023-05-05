@@ -8,7 +8,7 @@ const token = process.env.GITHUB_TOKEN;
 const octokit = github.getOctokit(token);
 
 const context = github.context;
-const pullRequest = context.payload.pull_request;
+const title = context.payload.pull_request.title;
 
 const main = async () => {
   const owner = context.repo.owner;
@@ -24,7 +24,7 @@ const main = async () => {
     const text = await contentResponse.text();
 
     console.log("LOL", text);
-    console.log("SA", pullRequest);
+    console.log("SA", title);
   } catch (err) {
     console.log("ERRr", err);
   }
