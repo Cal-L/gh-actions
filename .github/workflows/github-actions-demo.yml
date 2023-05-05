@@ -19,6 +19,4 @@ jobs:
   Validation:
     runs-on: ubuntu-latest
     steps:
-      - run: yarn add dotenv
-      - name: Template Validator
-        uses: ranemihir/template-validator@v1.0
+      - main: "index.js"
