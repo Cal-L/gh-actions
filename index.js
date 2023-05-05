@@ -5,13 +5,12 @@ const github = require("@actions/github");
 
 const prTemplatePath = ".github/PULL_REQUEST_TEMPLATE.md";
 const token = process.env.GITHUB_TOKEN;
-const branch = process.env.GITHUB_BRANCH;
 const octokit = github.getOctokit(token);
 
 const context = github.context;
 const title = context.payload.pull_request.title;
 const prbranch = context.payload.pull_request.head.ref;
-console.log("OK", prbranch);
+console.log("OK", prbranch, token[0]);
 const owner = context.repo.owner;
 const repo = context.repo.repo;
 
