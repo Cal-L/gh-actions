@@ -9,7 +9,7 @@ const branch = process.env.GITHUB_BRANCH;
 const octokit = github.getOctokit(token);
 
 const context = github.context;
-const prTitle = context.payload.pull_request.title;
+const title = context.payload.pull_request.title;
 const owner = context.repo.owner;
 const repo = context.repo.repo;
 
