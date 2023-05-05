@@ -12,7 +12,7 @@ const context = github.context;
 const title = context.payload.pull_request.title;
 const owner = context.repo.owner;
 const repo = context.repo.repo;
-console.log("sda", github.base_ref);
+console.log("sda", context.base_ref);
 
 /**
  * Checks if PR title is valid.
@@ -85,9 +85,9 @@ const enableMerge = async () => {
 };
 
 const main = async () => {
-  await freezeMerge();
+  //   await freezeMerge();
   await checkTitle();
-  await enableMerge();
+  //   await enableMerge();
   // const fileUrl = await response.data.download_url;
 };
 
