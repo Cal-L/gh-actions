@@ -19,10 +19,7 @@
 name: Run JavaScript file
 on:
   pull_request:
-    types: [opened, edited]
-  push:
-    branches:
-      - test/gh-workflow
+    types: [opened, edited, synchronize]
 jobs:
   run:
     runs-on: ubuntu-latest
