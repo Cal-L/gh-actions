@@ -13,13 +13,16 @@ const main = async () => {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
   try {
-    const response = await octokit.rest.repos.getContent({
+    const repoResponse = await octokit.rest.repos.getContent({
       owner,
       repo,
       path: prTemplatePath,
     });
-    const k = response.data;
-    console.log("LOL", k);
+    const fileUrl = await response.data.download_url;
+    const contentResponse = await fetch(fileUrl);
+    const text = await contentResponse.text();
+
+    console.log("LOL", text);
   } catch (err) {
     console.log("ERRr", err);
   }
