@@ -1,0 +1,29 @@
+name: Bitrise E2E
+on:
+  pull_request:
+    types: [labeled, unlabeled]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get PR detailss
+        id: pr_details
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const pr = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            return pr.data.labels.map(label => label.name);
+
+      - name: Conditionally start Bitrise build
+        if: contains(steps.pr_details.outputs.result, 'Run E2E')
+        # uses: bitrise-run@0.9.2
+        with:
+          app_slug: ${{ secrets.BITRISE_APP_SLUG }}
+          api_token: ${{ secrets.BITRISE_API_TOKEN }}
+          workflow_id: ios_e2e_test
