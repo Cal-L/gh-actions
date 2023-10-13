@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get PR details
+      - name: Get PR detailss
         id: pr_details
         uses: actions/github-script@v3
         with:
