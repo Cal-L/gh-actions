@@ -22,7 +22,7 @@ jobs:
 
       - name: Conditionally start Bitrise build
         if: contains(steps.pr_details.outputs.result, 'Run E2E')
-        uses: bitrise-steplib/bitrise-start-build-action@v0.0.4
+        uses: bitrise-io/bitrise-run@eafdbfcc04bd74ce439ee57248596f888609ff1a
         with:
           app_slug: ${{ secrets.BITRISE_APP_SLUG }}
           api_token: ${{ secrets.BITRISE_API_TOKEN }}
